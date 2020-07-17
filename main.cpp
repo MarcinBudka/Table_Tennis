@@ -6,6 +6,8 @@
 #include "paletka.h"
 #include "trybb.h"
 #include "scena.h"
+#include "tryb2vs2.h"
+#include "bloczek.h"
 using namespace std;
 
 int main()
@@ -22,12 +24,28 @@ int main()
     Bloczek_tekstura.loadFromFile("Bloczek.png");
 
     sf::Texture Pilka_tekstura;
-    Pilka_tekstura.loadFromFile("Paletka.png");
+    Pilka_tekstura.loadFromFile("Pilka.png");
 
     element_sceny Tlo(Tlo_tekstura);
     Tlo.setPosition(960,540);
 
-    trybb tryb_z_bloczkami(Paletka_tekstura, Bloczek_tekstura, Paletka_tekstura );
+    sf::Text wynik_tekst;
+    wynik_tekst.setPosition(0,0);
+
+    sf::Font font;
+    if (!font.loadFromFile("arial.ttf"))
+    {
+        std::cout << "error w czcionce";
+    }
+
+    wynik_tekst.setFont(font);
+    wynik_tekst.setCharacterSize(54);
+    wynik_tekst.setFillColor(sf::Color::White);
+    wynik_tekst.setStyle(sf::Text::Bold | sf::Text::Underlined);
+    wynik_tekst.setPosition(20,900);
+
+
+    trybb tryb_z_bloczkami(Paletka_tekstura, Bloczek_tekstura, Pilka_tekstura );
 
     while (window.isOpen()) {
         sf::Event event;
@@ -37,7 +55,16 @@ int main()
         }
         tryb_z_bloczkami.aktualizuj_scene();
         window.clear(sf::Color::Black);
+
+        std::string wynik = tryb_z_bloczkami.licz.wynik_do_tekstu();
+        wynik_tekst.setString(wynik);
+        //wynik_tekst.setString(std::to_string(licz.get_licznik()));
+
+
+        window.draw(Tlo);
         tryb_z_bloczkami.rysuj_scene(window);
+        window.draw(wynik_tekst);
+
         window.display();
     }
     return 0;

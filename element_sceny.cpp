@@ -24,3 +24,15 @@ bool element_sceny::kolizja(element_sceny& obiekt)
 
     return false;
 }
+sf::Vector2f element_sceny::zwroc_polowe()
+{
+    sf::Vector2f tymczasowy;
+    tymczasowy.x=getTextureRect().width/2.f;
+    tymczasowy.y=getTextureRect().height/2.f;
+    return tymczasowy;
+}
+
+bool element_sceny::kolizjaN(sf::FloatRect granica)
+{
+    return getGlobalBounds().intersects(granica);
+}
