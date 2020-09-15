@@ -6,7 +6,7 @@
 #include "paletka.h"
 #include "trybb.h"
 #include "scena.h"
-#include "tryb2vs2.h"
+//#include "tryb2vs2.h"
 #include "bloczek.h"
 using namespace std;
 

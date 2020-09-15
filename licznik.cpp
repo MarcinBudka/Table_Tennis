@@ -1,6 +1,6 @@
 #include "licznik.h"
 #include "trybb.h"
-#include "tryb_bloczki_scena.h"
+//#include "tryb_bloczki_scena.h"
 #include <vector>
 #include<SFML/System.hpp>
 #include<SFML/Window.hpp>
@@ -35,5 +35,4 @@ std::string licznik::wynik_do_tekstu()
     std::string wynik_tekst = buff;
     return wynik_tekst;
 }
-
 

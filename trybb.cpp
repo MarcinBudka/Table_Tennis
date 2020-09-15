@@ -1,5 +1,5 @@
 #include "trybb.h"
-#include "tryb_bloczki_scena.h"
+//#include "tryb_bloczki_scena.h"
 #include <vector>
 #include<SFML/System.hpp>
 #include<SFML/Window.hpp>
